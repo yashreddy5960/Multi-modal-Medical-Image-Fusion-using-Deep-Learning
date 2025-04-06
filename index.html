@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Image Fusion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Medical Image Fusion</h1>
+              
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#fusion">Fusion</a></li>
+                    <li><a href="#results">Results</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Medical Image Fusion Platform</h1>
+                <p>Enhance diagnostic capabilities by combining complementary information from multiple imaging modalities</p>
+                <a href="#fusion" class="btn">Start Fusion</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Medical Image Fusion</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Medical image fusion combines complementary information from multiple imaging modalities into a single composite image that is more informative and suitable for visual perception and computer-assisted diagnostic methods.</p>
+                    <p>Our platform supports fusion of:</p>
+                    <ul>
+                        <li><strong>MRI + CT:</strong> Combines soft tissue contrast with bone structure</li>
+                        <li><strong>CT + PET:</strong> Merges anatomical detail with metabolic activity</li>
+                        <li><strong>MRI + PET:</strong> Integrates soft tissue information with functional data</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="images/fusion-diagram.png" alt="Image Fusion Diagram" id="diagram-placeholder">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="fusion" class="fusion">
+        <div class="container">
+            <h2>Image Fusion</h2>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="mri-ct">MRI + CT</button>
+                <button class="tab-btn" data-tab="ct-pet">CT + PET</button>
+                <button class="tab-btn" data-tab="mri-pet">MRI + PET</button>
+            </div>
+
+            <div class="tab-content active" id="mri-ct">
+                <h3>MRI + CT Fusion</h3>
+                <div class="fusion-container">
+                    <div class="upload-container">
+                        <div class="upload-box">
+                            <h4>MRI Image</h4>
+                            <div class="image-preview" id="mri-preview">
+                                <img src="images/placeholder.png" alt="MRI Preview" id="mri-image-preview">
+                            </div>
+                            <input type="file" id="mri-upload" accept="image/*" class="file-input">
+                            <label for="mri-upload" class="upload-btn">Upload MRI</label>
+                        </div>
+                        <div class="upload-box">
+                            <h4>CT Image</h4>
+                            <div class="image-preview" id="ct-preview">
+                                <img src="images/placeholder.png" alt="CT Preview" id="ct-image-preview">
+                            </div>
+                            <input type="file" id="ct-upload" accept="image/*" class="file-input">
+                            <label for="ct-upload" class="upload-btn">Upload CT</label>
+                        </div>
+                    </div>
+                    <div class="fusion-options">
+                        <h4>Fusion Method</h4>
+                        <select id="fusion-method-mri-ct">
+                            <option value="wavelet">Wavelet Transform</option>
+                            <option value="pca">Principal Component Analysis</option>
+                            <option value="average">Averaging Method</option>
+                            <option value="maximum">Maximum Method</option>
+                        </select>
+                        <button id="fusion-btn-mri-ct" class="fusion-btn">Perform Fusion</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="ct-pet">
+                <h3>CT + PET Fusion</h3>
+                <div class="fusion-container">
+                    <div class="upload-container">
+                        <div class="upload-box">
+                            <h4>CT Image</h4>
+                            <div class="image-preview" id="ct2-preview">
+                                <img src="images/placeholder.png" alt="CT Preview" id="ct2-image-preview">
+                            </div>
+                            <input type="file" id="ct2-upload" accept="image/*" class="file-input">
+                            <label for="ct2-upload" class="upload-btn">Upload CT</label>
+                        </div>
+                        <div class="upload-box">
+                            <h4>PET Image</h4>
+                            <div class="image-preview" id="pet-preview">
+                                <img src="images/placeholder.png" alt="PET Preview" id="pet-image-preview">
+                            </div>
+                            <input type="file" id="pet-upload" accept="image/*" class="file-input">
+                            <label for="pet-upload" class="upload-btn">Upload PET</label>
+                        </div>
+                    </div>
+                    <div class="fusion-options">
+                        <h4>Fusion Method</h4>
+                        <select id="fusion-method-ct-pet">
+                            <option value="wavelet">Wavelet Transform</option>
+                            <option value="pca">Principal Component Analysis</option>
+                            <option value="average">Averaging Method</option>
+                            <option value="maximum">Maximum Method</option>
+                        </select>
+                        <button id="fusion-btn-ct-pet" class="fusion-btn">Perform Fusion</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="mri-pet">
+                <h3>MRI + PET Fusion</h3>
+                <div class="fusion-container">
+                    <div class="upload-container">
+                        <div class="upload-box">
+                            <h4>MRI Image</h4>
+                            <div class="image-preview" id="mri2-preview">
+                                <img src="images/placeholder.png" alt="MRI Preview" id="mri2-image-preview">
+                            </div>
+                            <input type="file" id="mri2-upload" accept="image/*" class="file-input">
+                            <label for="mri2-upload" class="upload-btn">Upload MRI</label>
+                        </div>
+                        <div class="upload-box">
+                            <h4>PET Image</h4>
+                            <div class="image-preview" id="pet2-preview">
+                                <img src="images/placeholder.png" alt="PET Preview" id="pet2-image-preview">
+                            </div>
+                            <input type="file" id="pet2-upload" accept="image/*" class="file-input">
+                            <label for="pet2-upload" class="upload-btn">Upload PET</label>
+                        </div>
+                    </div>
+                    <div class="fusion-options">
+                        <h4>Fusion Method</h4>
+                        <select id="fusion-method-mri-pet">
+                            <option value="wavelet">Wavelet Transform</option>
+                            <option value="pca">Principal Component Analysis</option>
+                            <option value="average">Averaging Method</option>
+                            <option value="maximum">Maximum Method</option>
+                        </select>
+                        <button id="fusion-btn-mri-pet" class="fusion-btn">Perform Fusion</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="results">
+        <div class="container">
+            <h2>Fusion Results</h2>
+            <div class="results-container">
+                <div class="result-image">
+                    <h3>Fused Image</h3>
+                    <div class="image-display" id="fused-image-container">
+                        <img src="images/placeholder.png" alt="Fused Image Result" id="fused-image">
+                    </div>
+                    <button id="download-btn" class="download-btn">Download Result</button>
+                </div>
+                <div class="metrics">
+                    <h3>Performance Metrics</h3>
+                    <div class="metrics-container">
+                        <div class="metric-card">
+                            <h4>Signal-to-Noise Ratio (SNR)</h4>
+                            <div class="metric-value" id="snr-value">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Peak Signal-to-Noise Ratio (PSNR)</h4>
+                            <div class="metric-value" id="psnr-value">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Structural Similarity Index (SSIM)</h4>
+                            <div class="metric-value" id="ssim-value">-</div>
+                        </div>
+                        <div class="metric-card">
+                            <h4>Mutual Information (MI)</h4>
+                            <div class="metric-value" id="mi-value">-</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <p>Advanced Medical Image Fusion</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#fusion">Fusion</a></li>
+                        <li><a href="#results">Results</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: yaswanthreddylomada@gmail.com</p>
+                    <p>Phone: +91 9704668186</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; Multi Modal Medical Image Fusion.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
